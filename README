@@ -1,0 +1,36 @@
+# 📰 News Article Agent (RAG-powered AI)
+
+## 🚀 Overview
+The **News Article Agent** is a **Retrieval-Augmented Generation (RAG)** system built with **Node.js**, **Kafka**, **SingleStore (Vector Database)**, and **OpenAI**. It allows users to query recent news articles, providing intelligent responses based on real-time data ingestion and retrieval.
+
+The system:
+- **Ingests news articles** via Kafka or a CSV dataset.
+- **Extracts, cleans, and stores** news content in a vector database.
+- **Embeds articles** using OpenAI embeddings for similarity search.
+- **Answers user queries** by retrieving relevant articles and generating responses using an LLM.
+
+---
+
+## 🏗️ Architecture
+
+    ┌────────────────────────────────┐
+    │   User Query (REST API)        │
+    └──────────┬─────────────────────┘
+               ▼
+    ┌───────────────────────────────────────┐
+    │   Query Processor (LLM + RAG)         │
+    └──────────┬────────────────────────────┘
+               ▼
+    ┌───────────────────────────────────────┐
+    │   Vector Database (SingleStore)       │
+    └──────────┬────────────────────────────┘
+               ▼
+    ┌────────────────────────────────────────┐
+    │   News Ingestion                       │
+    │   (Kafka / CSV Source)                 │
+    └────────────────────────────────────────┘
+
+
+---
+
+
